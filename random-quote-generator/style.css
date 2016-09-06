@@ -25,8 +25,8 @@ h1 {
 }
 
 #quote-generator-link {
-  font-family: 'Abril Fatface', cursive;
   display: block;
+  font-family: 'Abril Fatface', cursive;
   padding: 30px 25px;
   text-align: center;
   background-color: PapayaWhip;
@@ -64,4 +64,14 @@ h1 {
   font-size: 45px;
   font-weight: bold;
   font-style: italic;
+}
+
+#tweet {
+  display: none;
+  width: 50px;
+  margin: 0 auto;
+}
+
+#tweet:hover {
+  cursor: pointer;
 }
