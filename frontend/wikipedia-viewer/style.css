@@ -5,7 +5,7 @@
   padding: 0;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 html {
@@ -39,16 +39,23 @@ h1 {
   font-weight: normal;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+}
+
 form {
   text-align: center;
   display: table-row;
   vertical-align: middle;
+  width: 100%;
 }
 
 label {
   display: inline-block;
   width: 60%;
-  margin-right: 2px;
+  margin-right: 10px;
 }
 
 input[type="text"] {
@@ -70,6 +77,7 @@ button {
   display: inline-block;
   padding: 15px;
   vertical-align: top;
+  height: 52px;
 }
 
 @-webkit-keyframes confetti {
@@ -146,4 +154,14 @@ h1 {
   -webkit-animation:confetti 6s infinite;
   -moz-animation: confetti 6s infinite;
   -o-animation: confetti 6s infinite;
+}
+
+@media screen and (max-width: 700px) {
+  h1 {
+    font-size: 2.5em;
+  }
+  h1 {
+    vertical-align: middle;
+    height: 20%;
+  }
 }

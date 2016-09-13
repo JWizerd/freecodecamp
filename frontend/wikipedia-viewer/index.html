@@ -9,17 +9,25 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <header>
     <h1>Wikipedia Viewer</h1>
   </header>
+
   <form class="form" method="post">
     <label for="search">
       <input type="text" name="search" id="search" placeholder="Enter your query.">
     </label>
+
     <button type="submit" class="submit">
       <i class="fa fa-search fa-2x"></i>
     </button>
+    <button type="submit" class="submit random">
+      <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">Random</a>
+    </button>
   </form>
+
+  <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
   <script type="text/javascript" src="main.js">
   </script>
 </body>
