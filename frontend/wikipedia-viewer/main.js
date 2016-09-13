@@ -1,12 +1,18 @@
 $(document).ready(function(){
-
+  loader();
 });
 
-var API = "http://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrnamespace=0&gsrsearch=test&gsrlimit=10&prop=pageimages|extracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max"
+var BASE = "http://en.wikipedia.org/w/api.php?"
+var pageQuery = "format=json&action=query&generator=search&gsrnamespace=0&gsrsearch=test&gsrlimit=10&prop=pageimages|extracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max&callback=?"
+var url = BASE + pageQuery;
 
 function loader(){
-  $.get(API, function(data){
+  $.getJSON(url, function(data){
     alert("success");
+    $.each(data.query.pages, function(key, val){
+      $("main").append("<article></article>");
+      $("article").append("<h2>" + val.title + "</h2>");
+    });
   }).fail(function(){
     alert("fail");
   });
