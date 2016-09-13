@@ -1,29 +1,47 @@
 $(document).ready(function(){
-  loader();
+  searchQuery()
+  randomArticle();
 });
 
 var BASE = "http://en.wikipedia.org/w/api.php?"
-var pageQuery = "format=json&action=query&generator=search&gsrnamespace=0&gsrsearch=test&gsrlimit=10&prop=pageimages|extracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max&callback=?"
-var url = BASE + pageQuery;
+var QueryPart1 = "format=json&action=query&generator=search&gsrnamespace=0&gsrsearch=";
+var QueryPart2 = "&gsrlimit=10&prop=pageimages|extracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max&callback=?";
 
-function loader(){
-  $.getJSON(url, function(data){
-    alert("success");
-    $.each(data.query.pages, function(key, val){
-      $("main").append("<article></article>");
-      $("article").append("<h2>" + val.title + "</h2>");
-    });
-  }).fail(function(){
-    alert("fail");
+var pageIdFormatForArticle = "https://en.wikipedia.org/?curid=";
+
+function searchQuery() {
+  $("#submit-query").on("click", function(event){
+    event.preventDefault();
+    var userQuery = $("#search").val();
+    loader(userQuery);
   });
 }
 
-function randomArticle(){
-  $(".random").on("click" , function(){
-    $(window).open("https://en.wikipedia.org/wiki/Special:Random", "_blank");
-  })
+function loader(string){
+  var url = BASE + QueryPart1 + string + QueryPart2;
+  $.getJSON(url, function(data){
+    alert("success");
+    $.each(data.query.pages, function(key, val){
+      appendData(val);
+    });
+  }).fail();
 }
 
+function fail() {
+  alert("fail");
+}
 
-//http://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrnamespace=0&gsrsearch=test&gsrlimit=10&prop=pageimages|extracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max
-// https://en.wikipedia.org/?curid= ?curid= is used to convert wiki page ids.
+function appendData(val){
+  $("main").append(
+    "<article>" +
+    "<h2><a href='" + pageIdFormatForArticle + val.pageid + "'>" + val.title + "</a></h2>" +
+    "<p>" + val.extract + "</p>" +
+    "</article>"
+  );
+}
+
+function randomArticle(){
+  $("#random").on("click" , function(){
+    $(window).open("https://en.wikipedia.org/wiki/Special:Random", "_blank");
+  })
+};

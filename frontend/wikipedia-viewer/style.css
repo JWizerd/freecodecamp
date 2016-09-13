@@ -80,6 +80,23 @@ button {
   height: 52px;
 }
 
+article {
+  width: 70%;
+  margin: 40px auto;
+  padding: 40px;
+  background: papayawhip;
+}
+
+h2 {
+  color: SaddleBrown;
+  line-height: 40px;
+}
+
+p {
+  color: Chocolate;
+}
+
+
 @-webkit-keyframes confetti {
   0% {
     color: CornSilk;
