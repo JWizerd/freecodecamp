@@ -1,0 +1,149 @@
+@import 'https://fonts.googleapis.com/css?family=Modak';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background: IndianRed;
+  display: table;
+  width: 100%;
+  height: 100%;
+  font: normal 17px "Helvetica", sans-serif;
+}
+
+header {
+  width: 100%;
+  text-align: center;
+  display: table-row;
+  font-family: "Modak", cursive;
+}
+
+h1 {
+  display: table-cell;
+  vertical-align: middle;
+  color: CornSilk;
+  -webkit-text-shadow: text-shadow: 1px 1px 10px #333;
+  -moz-text-shadow: text-shadow: 1px 1px 10px #333;
+  -0-text-shadow: text-shadow: 1px 1px 10px #333;
+  text-shadow: 1px 1px 10px #333;
+  font-size: 7em;
+  font-weight: normal;
+}
+
+form {
+  text-align: center;
+  display: table-row;
+  vertical-align: middle;
+}
+
+label {
+  display: inline-block;
+  width: 60%;
+  margin-right: 2px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  display: inline-block;
+  vertical-align: top;
+  height: 52px;
+}
+
+input[placeholder] {
+  font-size: 18px;
+  color: SaddleBrown;
+  font-weight: bold;
+}
+
+button {
+  display: inline-block;
+  padding: 15px;
+  vertical-align: top;
+}
+
+@-webkit-keyframes confetti {
+  0% {
+    color: CornSilk;
+  }
+  25% {
+    color: BurlyWood;
+  }
+  50% {
+    color: Tan;
+  }
+  75% {
+    color: BurlyWood;
+  }
+  25% {
+    color: CornSilk;
+  }
+}
+@-moz-keyframes confetti {
+  0% {
+    color: CornSilk;
+  }
+  25% {
+    color: BurlyWood;
+  }
+  50% {
+    color: Tan;
+  }
+  75% {
+    color: BurlyWood;
+  }
+  25% {
+    color: CornSilk;
+  }
+}
+@-o-keyframes confetti {
+  0% {
+    color: CornSilk;
+  }
+  25% {
+    color: BurlyWood;
+  }
+  50% {
+    color: Tan;
+  }
+  75% {
+    color: BurlyWood;
+  }
+  25% {
+    color: CornSilk;
+  }
+}
+
+@keyframes confetti {
+  0% {
+    color: CornSilk;
+  }
+  25% {
+    color: BurlyWood;
+  }
+  50% {
+    color: Tan;
+  }
+  75% {
+    color: BurlyWood;
+  }
+  25% {
+    color: CornSilk;
+  }
+}
+
+h1 {
+  -webkit-animation:confetti 6s infinite;
+  -moz-animation: confetti 6s infinite;
+  -o-animation: confetti 6s infinite;
+}
