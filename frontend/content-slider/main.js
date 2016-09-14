@@ -1,9 +1,10 @@
 $(document).ready(function(){
+
   // Auto Slide Options
   var autoSwitch = true;
   var autoSwitchSpeed = 4000;
 
-  SliderWidget(".slide", "active", "#next");
+  SliderWidget(".slide", "active", "#next", autoSwitchSpeed);
 
   // button: #next
   // styleClass: .active { opacity: 1; transition: ease-in 1s; }
@@ -11,10 +12,10 @@ $(document).ready(function(){
 
 });
 
-function SliderWidget(slideElm, styleClass, button){
+function SliderWidget(slideElm, styleClass, button, intervalSpeed){
   initializeSlider(slideElm, styleClass);
   sliderClickTransition(slideElm, styleClass, button);
-  sliderAutoSlide(styleClass, slideElm);
+  sliderAutoSlide(styleClass, slideElm, intervalSpeed);
 }
 
 // initialize first slider
@@ -34,10 +35,10 @@ function sliderClickTransition(slideElm, styleClass, button){
   });
 }
 
-function sliderAutoSlide(styleClass, slideElm){
+function sliderAutoSlide(styleClass, slideElm, intervalSpeed){
   setInterval(function(){
     sliderTransition(styleClass, slideElm);
-  }, 3000);
+  }, intervalSpeed);
 }
 
 function sliderTransition(styleClass, slideElm){
