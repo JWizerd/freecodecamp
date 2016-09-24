@@ -2,11 +2,11 @@ $(document).ready(function(){
 
   // Auto Slide Options
   var autoSwitch = true;
-  var autoSwitchSpeed = 4000;
+  var autoSwitchSpeed = 6000;
 
   SliderWidget(".slide", "active", "#next", autoSwitchSpeed);
 
-  // button: #next
+  // button: #next, #prev
   // styleClass: .active { opacity: 1; transition: ease-in 1s; }
   // slideElm: .slide
 
