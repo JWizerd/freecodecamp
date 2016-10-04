@@ -20,7 +20,6 @@ function searchQuery() {
 function loader(string){
   var url = BASE + QueryPart1 + string + QueryPart2;
   $.getJSON(url, function(data){
-    alert("success");
     $.each(data.query.pages, function(key, val){
       appendData(val);
     });
