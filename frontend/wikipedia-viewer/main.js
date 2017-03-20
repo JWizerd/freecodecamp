@@ -12,6 +12,7 @@ var pageIdFormatForArticle = "https://en.wikipedia.org/?curid=";
 function searchQuery() {
   $("#submit-query").on("click", function(event){
     event.preventDefault();
+    $('main').html("");
     var userQuery = $("#search").val();
     loader(userQuery);
   });
