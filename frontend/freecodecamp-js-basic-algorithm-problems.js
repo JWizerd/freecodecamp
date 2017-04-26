@@ -26,7 +26,7 @@ function factorialize(num) {
     return 1;
   }
   while (num > 1) {
-    num--
+    num--;
     factor *= num;
   }
   return factor;
@@ -66,4 +66,70 @@ function largestOfFour(arr) {
       return (current > prev) ? current : prev;
     }, 0);
   });
+}
+
+// 1. Repeat a given string (first argument) num times (second argument). Return an empty string if num is not a positive number.
+
+function repeatStringNumTimes(str, num) {
+  if (num > 0) { return str.repeat(num); }
+  return '';
+}
+
+repeatStringNumTimes("abc", 3);
+
+// Truncate a string (first argument) if it is longer than the given maximum string length (second argument). Return the truncated string with a ... ending.
+// Note that inserting the three dots to the end will add to the string length.
+// However, if the given maximum string length num is less than or equal to 3, then the addition of the three dots does not add to the string length in determining the truncated string.
+
+function truncateString(str, num) {
+  if (num <= 3) {
+    return str.slice(0, num) + "...";
+  } else if (str.length > num) {
+    return str.slice(0, num - 3) + "...";
+  }
+  return str;
+}
+
+// Write a function that splits an array (first argument) into groups the length of size
+// (second argument) and returns them as a two-dimensional array.
+
+
+function chunkArrayInGroups(arr, size) {
+  // Break it up.
+  var finalArr = [];
+  for (var i = 0; i < arr.length; i+=size) {
+    // iterate through each item and depending on size arg slice (extract) from i beginning index to index (i + size)
+    // slice being none destructive will give you a copy of the initial arr arg to work with each iteration.
+    finalArr.push(arr.slice(i, i + size));
+  }
+  return finalArr;
+}
+
+// Return the remaining elements of an array after chopping off n elements from the head.
+// The head means the beginning of the array, or the zeroth index.
+
+function slasher(arr, howMany) {
+  var newArray = arr.slice(howMany);
+  return newArray;
+}
+
+// Return true if the string in the first element of the array contains all of the letters of
+// the string in the second element of the array.
+
+function mutation(arr) {
+  var target = arr[0].toLowerCase(), test = arr[1].toLowerCase();
+  for (var i = 0; i < test.length; i++) {
+    if (target.indexOf(test[i]) < 0) { return false; }
+  }
+  return true;
+}
+
+// Remove all falsy values from an array.
+// Falsy values in JavaScript are false, null, 0, "", undefined, and NaN.
+
+function bouncer(arr) {
+  function isFalsy(value) {
+    if (Boolean(value)) { return value; }
+  }
+  return arr.filter(isFalsy);
 }
