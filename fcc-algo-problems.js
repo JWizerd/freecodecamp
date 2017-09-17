@@ -288,8 +288,35 @@ function translatePigLatin(str) {
 }
 
 
-translatePigLatin("california")
-translatePigLatin("paragraphs")
-translatePigLatin("glove")
-translatePigLatin("algorithm")
-translatePigLatin("eight")
+/*
+DNA Pairing
+ */
+
+function pairElement(str) {
+  pairs = []
+  for (var i = 0; i < str.length; i++) {
+    switch (str[i]) {
+      case 'A':
+        pairs.push(['A', 'T'])
+      break
+
+      case 'T':
+        pairs.push(['T', 'A'])
+      break
+
+      case 'C':
+        pairs.push(['C', 'G'])
+      break
+
+      case 'G':
+        pairs.push(['G', 'C'])
+      break
+    }
+  }
+  return pairs
+}
+
+/*
+Missing letters
+ */
+
