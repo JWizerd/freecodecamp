@@ -245,8 +245,8 @@ function whatIsInAName(collection, source) {
 Search and Replace
 */
 
-// create regex that finds word and replaces it
 function myReplace(str, before, after) {
+  // global replace 
   regex = new RegExp(before.toLowerCase(), 'gi')
   return before[0] === before[0].toUpperCase() ? 
     str.replace(regex, after.charAt(0).toUpperCase() + after.slice(1)) : 
@@ -254,7 +254,42 @@ function myReplace(str, before, after) {
 }
 
 
+
 // for logging
 function l(arg) {
   console.log(arg)
+} 
+
+/*
+Pig Latin
+
+SPLIT str into array
+SPLICE firstChar from arr
+SHIFT first i from arr
+PUSH i plus "ay" into arr
+RETURN arr.join('')
+ */
+
+function translatePigLatin(str) {
+  arr = str.split('')
+  regex = /[aeiou]/gi
+
+  if(str[0].match(regex)) {
+    return str + "way"
+  } else {
+    followingChar = str[1].match(regex) ? '' : str[1]
+    // if the following char is also a vowel RETURN only first letter 
+    // ELSE return 1st and 2nd letter
+    pigLatin = followingChar === '' ? 
+               str.substr(1) + str[0] + "ay" :
+               str.substr(2) + str[0] + followingChar + "ay"
+    return pigLatin
+  }
 }
+
+
+translatePigLatin("california")
+translatePigLatin("paragraphs")
+translatePigLatin("glove")
+translatePigLatin("algorithm")
+translatePigLatin("eight")
