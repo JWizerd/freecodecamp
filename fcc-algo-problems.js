@@ -253,13 +253,6 @@ function myReplace(str, before, after) {
     str.replace(regex, after)
 }
 
-
-
-// for logging
-function l(arg) {
-  console.log(arg)
-} 
-
 /*
 Pig Latin
 
@@ -314,9 +307,57 @@ function pairElement(str) {
     }
   }
   return pairs
+} 
+
+/*
+Slasher
+
+IF howMany equals zero return arry
+ELSE arr.splice(0, howMany)
+RETURN arr
+ */
+
+function slasher(arr, howMany) {
+  return arr.slice(howMany);
 }
 
 /*
-Missing letters
+Mutations
  */
 
+function mutation(arr) {
+  var item1 = arr[0].toLowerCase().split('').sort(),
+      item2 = arr[1].toLowerCase().split('').sort()
+      test  = item2.map(function(item) { 
+        if (item1.indexOf(item) !== -1) { return item; } 
+      }).join('')
+  return test === item2.join('')
+}
+
+/*
+repeat a string
+ */
+
+function repeatStringNumTimes(str, num) {
+  return num > 0 ? str.repeat(num) : ''
+}
+
+/*
+Sorted Union
+ */
+
+function uniteUnique(arr) {
+  arr = Array.from(arguments)
+  // apply takes a list of args (or iterable object) 
+  // and runs function on all of them
+  return [].concat.apply([], arr).filter(function(item, pos, self) {
+    return self.indexOf(item) === pos
+  })
+}
+
+uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1])
+
+// for logging
+function l(arg) {
+  console.log(arg)
+}
